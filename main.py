@@ -1,17 +1,12 @@
-from tkinter import Tk, Label
+from tkinter import Tk, Canvas
+from src import node
 
 root = Tk()
+canvas = Canvas(root,bg="white",height=300,width=300)
+canvas.pack()
 
-# Creating a label Widget
-myLabel1 = Label(root, text="Hello World!")
-myLabel2 = Label(root, text="Ny name is Himanshu Mittal!")
+node = node.Node(50,50,20,canvas)
+node.show()
 
-myLabel1.grid(row=0, column=0)
-myLabel2.grid(row=1, column=1)
-
-root.mainloop()
-
-class Node:
-    def __init__(self):
-        pass
-
+if __name__=='__main__':
+    root.mainloop()
