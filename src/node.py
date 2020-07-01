@@ -8,4 +8,4 @@ class Node:
         self.canvas = canvas
 
     def show(self):
-        create_circle(self.x, self.y, self.r, self.canvas)
+        create_circle(self.x, self.y, self.r, self.canvas, outline="red", fill="blue")

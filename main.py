@@ -1,12 +1,13 @@
-from tkinter import Tk, Canvas
-from src import node
+from tkinter import *
+from src.layer import Layer
 
 root = Tk()
-canvas = Canvas(root,bg="white",height=300,width=300)
+canvas = Canvas(root,bg="white",height=600,width=600)
 canvas.pack()
 
-node = node.Node(50,50,20,canvas)
-node.show()
+root.update()
+layer = Layer(50, canvas)
+layer.show()
 
 if __name__=='__main__':
     root.mainloop()
