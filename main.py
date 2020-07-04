@@ -5,7 +5,7 @@ from src.modelmanager import ModelManager
 import torch
 
 root = Tk()
-canvas = Canvas(root,bg="white",height=600,width=800)
+canvas = Canvas(root,bg="white",height=600,width=1000)
 canvas.pack()
 
 model_filepath = None

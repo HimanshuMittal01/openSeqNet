@@ -1,3 +1,7 @@
+import torch
+import matplotlib.colors as mcolors
+import matplotlib.cm as cm
+
 class Edge:
     def __init__(self, node1, node2, weight, color, canvas):
         self.node1  = node1
@@ -21,9 +25,21 @@ class EdgeMatrix:
         self._fill()
 
     def _fill(self):
+        maxw = torch.max(self.weights.view(-1,1)).item()
+        minw = torch.min(self.weights.view(-1,1)).item()
+
+        norm = mcolors.Normalize(vmin=minw, vmax=maxw, clip=True)
+        mapper = cm.ScalarMappable(norm=norm, cmap=cm.Set1)
+         
         for i in range(self.layer1.n):
             for j in range(self.layer2.n):
-                self.edges[i][j] = Edge(self.layer1.nodes[i], self.layer2.nodes[j], self.weights[j][i], "black", self.canvas)
+                self.edges[i][j] = Edge(
+                    self.layer1.nodes[i],
+                    self.layer2.nodes[j],
+                    self.weights[j][i],
+                    mcolors.to_hex(mapper.to_rgba(self.weights[j][i].detach().numpy())),
+                    self.canvas
+                    )
     
     def show(self):
         for i in range(self.layer1.n):
