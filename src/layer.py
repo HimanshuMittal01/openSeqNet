@@ -19,9 +19,10 @@ class Layer:
         height = self.canvas.winfo_height()
 
         gap = height/self.n
-        offset = 5
+        offset = gap/2
+        r = gap/4
         for i in range(self.n):
-            self.nodes[i] = Node(self.x, offset+gap*i, 2, self.canvas)
+            self.nodes[i] = Node(self.x, offset+gap*i, r, self.canvas)
     
     def show(self):
         for node in self.nodes:
