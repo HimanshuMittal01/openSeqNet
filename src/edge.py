@@ -29,7 +29,7 @@ class EdgeMatrix:
         minw = torch.min(self.weights.view(-1,1)).item()
 
         norm = mcolors.Normalize(vmin=minw, vmax=maxw, clip=True)
-        mapper = cm.ScalarMappable(norm=norm, cmap=cm.Set1)
+        mapper = cm.ScalarMappable(norm=norm, cmap=cm.Set1) # Set 1
          
         for i in range(self.layer1.n):
             for j in range(self.layer2.n):
