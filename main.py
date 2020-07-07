@@ -5,6 +5,7 @@ from src.modelmanager import ModelManager
 import torch
 
 root = Tk()
+root.title("OpenSeqNet")
 canvas = Canvas(root,bg="white",height=600,width=1000)
 canvas.pack()
 
